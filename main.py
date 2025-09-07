@@ -10,8 +10,8 @@ env.read_env()
 async def main():
     TOKEN=env.str("TOKEN")
     bot=Bot(TOKEN)
-    dp.include_router(admin_router)
     dp.include_router(user_router)
+    dp.include_router(admin_router)
     await dp.start_polling(bot)
 if __name__=="__main__":
         logging.basicConfig(level=logging.INFO)
