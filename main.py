@@ -3,7 +3,7 @@ from environs import Env
 import asyncio
 import logging
 
-from hendler import admin_router,user_router
+from handler import admin_router,user_router
 import os
 
 os.makedirs("images",exist_ok=True)
@@ -29,3 +29,4 @@ if __name__ == "__main__":
         asyncio.run(main())
     except Exception as err:
         print(err)
+        
