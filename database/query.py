@@ -181,8 +181,17 @@ def add_food(data: dict):
         with conn:
             cur = conn.cursor()
             cur.execute(
-                "INSERT INTO food (name, description, image, price, quantity) VALUES (?, ?, ?, ?, ?)",
-                (data["name"], data["desc"], data["image"], data["price"], data["quantity"]),
+                """
+                INSERT INTO food (name, description, image, price, quantity) 
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (
+                    str(data["name"]),
+                    str(data["desc"]),
+                    str(data["image"]),
+                    int(data["price"]),     # faqat butun son
+                    int(data["quantity"]),  # hammasi int
+                ),
             )
         return True
     except Exception as e:
